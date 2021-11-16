@@ -13,7 +13,7 @@ print(user_manual)
 while True:
     try:
         action = listener.listen_input()
-    except ExceptionUserInputError as e:
+    except ExceptionUserInputError as e: # бросаем кастомный эксепшн, если введенные данные отсутствуют в списке команд
         print(e)
     else:
         if action == "выход":

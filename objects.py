@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 
 class InternalStates(ABC):
+    """Класс с абстрактными методами стейтов"""
+
     @abstractmethod
     def open_state(self):
         pass
@@ -12,6 +14,8 @@ class InternalStates(ABC):
 
 
 class DoorStates(InternalStates):
+    """Класс-интерфейс стейтов двери"""
+
     def open_state(self):
         return "открыта"
 
@@ -20,6 +24,8 @@ class DoorStates(InternalStates):
 
 
 class LockStates(InternalStates):
+    """Класс-интерфейс стейтов замка"""
+
     def open_state(self):
         return "открыт"
 
@@ -28,6 +34,8 @@ class LockStates(InternalStates):
 
 
 class Door(InternalStates):
+    """Класс двери, содержащий методы по управлению стейтами экземпляров класса"""
+
     def __init__(self):
         self.state = door_interface.close_state()
 
@@ -50,6 +58,8 @@ class Door(InternalStates):
 
 
 class Lock(InternalStates):
+    """Класс замка, содержащий методы по управлению стейтами экземпляров класса"""
+
     def __init__(self):
         self.state = lock_interface.close_state()
 
@@ -71,5 +81,6 @@ class Lock(InternalStates):
                 return f"Замок {self.state}.\n"
 
 
+# создаём экземпляры двери, завмка и их интерфейсов
 door_interface, lock_interface = DoorStates(), LockStates()
 door, lock = Door(), Lock()

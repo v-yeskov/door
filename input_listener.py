@@ -9,6 +9,8 @@ class ExceptionUserInputError(Exception):
 
 
 class InputListener:
+    """Класс-слушатель пользовательского ввода"""
+
     @staticmethod
     def listen_input():
         user_input = input("Введите действие:\n")
@@ -18,6 +20,8 @@ class InputListener:
 
 
 class InputAnalyzer:
+    """Класс-анализатор пользовательского ввода"""
+
     @staticmethod
     def analyze_user_input(u_input):
         if u_input not in user_actions:
